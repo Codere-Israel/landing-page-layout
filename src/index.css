@@ -1,0 +1,329 @@
+:root {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.5rem 0;
+  width: 120px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #0d6efd;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+button:hover {
+  background-color: #0d6efdcc;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+}
+
+.hero {
+  background-image: url("https://www.codere.es/landingPage/assets/images/desktopWB.webp");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@media screen and (max-width: 767px) {
+  button {
+    width: 25vw;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    background-image: url("https://www.codere.es/landingPage/assets/images/mobileWB.webp");
+  }
+  .avner {
+    margin-top: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.2) 0px 30px 60px -4px inset,
+      rgba(0, 0, 0, 0.25) 0px 18px 24px -17px inset !important;
+
+    background: #41494e;
+  }
+}
+
+/* CSS */
+
+.mobile_regis:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+.ReactSwipeButton.mobile_regis {
+  width: 77vw;
+  height: 16vw;
+  box-shadow: 0 7px 7px -4px rgb(0 0 0);
+}
+
+.ReactSwipeButton {
+  background-color: #0055fe;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  margin: auto;
+  float: left;
+  width: 85%;
+  height: 70px;
+  position: absolute;
+  /* bottom: s1.5vw; */
+  top: 100vw;
+  z-index: 1;
+}
+
+.segmented {
+  position: absolute;
+}
+
+.segmentedReactSwipeButton {
+  /* display: flex; */
+  background-color: #79c000 !important;
+  background: unset;
+  border: unset;
+  box-shadow: none !important;
+  /* text-shadow: #00000088 1px 0px 0px, #00000088 0.540302px 0.841471px 0px,
+    #00000088 -0.416147px 0.909297px 0px, #00000088 -0.989992px 0.14112px 0px,
+    #00000088 -0.653644px -0.756802px 0px, #00000088 0.283662px -0.958924px 0px,
+    #00000088 0.96017px -0.279415px 0px; */
+}
+
+.segmentedReactSwipeButton:hover {
+  background-color: #79c000 !important;
+  background: unset;
+  border: unset;
+}
+
+.segmentedCircle {
+  background-color: #598d00 !important;
+}
+
+.ReactSwipeButton,
+.ReactSwipeButton * {
+  -webkit-touch-callout: none;
+
+  /* iOS Safari */
+  -webkit-user-select: none;
+
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+
+  /* Konqueror */
+  -moz-user-select: none;
+
+  /* Firefox */
+  -ms-user-select: none;
+
+  /* Internet Explorer/Edge */
+  user-select: none;
+
+  /* Non-prefixed version, currently
+                                    not supported by any browser */
+}
+
+.ReactSwipeButton {
+  float: unset;
+  position: relative;
+}
+
+.rsbContainer {
+  float: unset;
+  width: 100%;
+  display: flex;
+  height: 100%;
+
+  /* background: #0055fe; */
+  border-radius: 50px;
+
+  /* position: relative; */
+
+  /* box-shadow: inset 1px 1px 4px rgba(255, 255, 255, 0.1); */
+  overflow: hidden;
+}
+
+.rsbContainerUnlocked {
+  width: 50% !important;
+  margin-left: 25%;
+  transition: 1.5s;
+  cursor: default;
+}
+
+.rsbContainerUnlocked .rsbcSlider {
+  cursor: default;
+  pointer-events: none;
+}
+
+.rsbContainerUnlocked .rsbcSliderArrow {
+  transition: 0.5s;
+  margin-right: -3vw;
+}
+
+.rsbContainerUnlocked .rsbcSliderCircle {
+  transition: 0.5s;
+  margin-right: -3vw;
+}
+
+.rsbcSlider {
+  /* background: rgba(55, 33, 255, 0.85); */
+  float: left;
+  width: 100%;
+  position: relative;
+  height: 50px;
+  top: 0;
+  left: 13vw;
+  margin-left: -100%;
+  border-radius: 25px;
+  z-index: 1;
+
+  /* box-shadow: 1px 1px 5px rgb(0 0 0 / 30%); */
+  cursor: pointer;
+
+  /* transition: left 150ms; */
+}
+
+.rsbcSliderText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 50px;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 13px;
+}
+
+#game-svg {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.rsbcSliderCircle svg {
+  width: 10vw;
+  top: 1vw;
+  left: 0.85vw;
+  height: auto;
+  animation-name: sds2;
+  animation-duration: 750ms;
+  position: relative;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes sds2 {
+  0% {
+    transform: translateX(0.6rem);
+  }
+
+  50% {
+    transform: translateX(-0.3rem);
+  }
+
+  100% {
+    transform: translateX(0.6rem);
+  }
+}
+
+.jugar-div svg {
+  animation-name: sts2;
+  animation-duration: 0.4s;
+  margin-left: 0.3vw;
+}
+
+.rsbcSliderCircle {
+  /* box-shadow: 0 -0.7em 0.9em 0.5em #14a73e98; */
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  color: #fff;
+  background: #12459e;
+  right: -3.5vw;
+  top: 1.65vw;
+  height: 13vw;
+  width: 13vw;
+  border-radius: 8px;
+  z-index: 999999999;
+
+  /* transition: all 3s; */
+}
+
+.rsbcText {
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  float: left;
+  font-family: Roboto, sans-serif;
+  font-size: 6vw;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 16vw;
+  left: 9vw;
+  right: 0;
+  text-transform: uppercase;
+  top: 0.4vw;
+}
+
+/* Shine */
+
+.shine {
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.85) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.85) 70%
+  );
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+
+  to {
+    -webkit-mask-position: -50%;
+  }
+}
