@@ -9,7 +9,6 @@ export default function LpRoutes() {
         <Route exact path="/" element={<App />} />
         <Route exact path="/test-avner" element={<App />} />
       </Routes>
-      <div>LpRoutes</div>
     </>
   );
 }
