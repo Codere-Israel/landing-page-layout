@@ -58,7 +58,7 @@ button:hover {
 }
 
 .hero {
-  background-image: url("https://www.codere.es/landingPage/assets/images/desktopWB.webp");
+  /* background-image: url("https://www.codere.es/landingPage/assets/images/desktopWB.webp"); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -70,7 +70,7 @@ button:hover {
   }
 
   .hero {
-    background-image: url("https://www.codere.es/landingPage/assets/images/mobileWB.webp");
+    /* background-image: url("https://www.codere.es/landingPage/assets/images/mobileWB.webp"); */
   }
   .avner {
     margin-top: 1rem;
