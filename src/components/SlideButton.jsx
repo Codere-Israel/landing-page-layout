@@ -1,22 +1,20 @@
 import React, { useRef, useState, useEffect } from "react";
 import { REGIS_URL } from "../helper/consts";
+import myStore from "../mobX/myStore";
+import { observer } from "mobx-react";
 
 const isTouchDevice = "ontouchstart" in document.documentElement;
 
-const SlideButton = () => {
+const SlideButton = observer(() => {
   const sliderRef = useRef(null);
   const containerRef = useRef(null);
 
   const [unlocked, setUnlocked] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [sliderLeft, setSliderLeft] = useState(0);
+  const [sliderLeft, setSliderLeft] = useState(100);
   const containerWidth = useRef(0);
   const unmounted = useRef(false);
-
-  //   const buttonText = "SLIDE";
-  //   const unlockedText = "UNLOCKED";
-  const ctaText = "Regístrate"; // Button label
 
   const updateSliderStyle = (left) => {
     if (!sliderRef.current || unlocked) return;
@@ -118,11 +116,14 @@ const SlideButton = () => {
               </svg>
             </span>
           </div>
-          <div className="rsbcText shine">{ctaText}</div>
+          <div className="rsbcText shine">{myStore.component?.ctaText}</div>
+        </div>
+        <div className="text-center text-[2.5vw] pt-1 text-[#79c000]">
+          This is Disclaime color #79c000
         </div>
       </a>
     </div>
   );
-};
+});
 
 export default SlideButton;

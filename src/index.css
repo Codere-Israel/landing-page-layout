@@ -101,7 +101,7 @@ button:hover {
   margin: auto;
   float: left;
   width: 85%;
-  height: 70px;
+  height: 18vw;
   position: absolute;
   /* bottom: s1.5vw; */
   top: 100vw;
@@ -205,7 +205,7 @@ button:hover {
   width: 100%;
   position: relative;
   height: 50px;
-  top: 0;
+  top: 1vw;
   left: 13vw;
   margin-left: -100%;
   border-radius: 25px;
