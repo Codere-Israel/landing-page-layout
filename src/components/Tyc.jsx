@@ -1,7 +1,9 @@
+import { observer } from "mobx-react";
 import React, { useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import myStore from "../mobX/myStore";
 
-export default function Tyc() {
+const Tyc = observer(() => {
   const tycList = [
     "PERIODO DE LA PROMOCIÓN: Promoción válida únicamente para nuevos usuarios registrados desde el 16 de diciembre de 2024 a las 00:01 en adelante.",
     "EXPLICACIÓN: (PROMOCIÓN EXCLUSIVA PARA NUEVOS REGISTROS)",
@@ -29,15 +31,15 @@ export default function Tyc() {
       </div>
       {showTyc && (
         <Fade triggerOnce>
-          <ul className="list-unstyled">
-            {tycList.map((tycItem, i) => (
-              <li className="pt-2 ps-5" key={i}>
-                {tycItem}
-              </li>
-            ))}
-          </ul>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: myStore.component?.tyc?.html,
+            }}
+          />
         </Fade>
       )}
     </div>
   );
-}
+});
+
+export default Tyc;

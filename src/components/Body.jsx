@@ -15,13 +15,12 @@ const Body = observer(() => {
   });
 
   return (
-    <div>
+    <>
       <div
         style={{
           backgroundImage: `url(${toJS(
-            myStore.component[
-              `${isDesktopOrLaptop ? "Desktop" : "Mobile"}BannerImageURL`
-            ]?.default
+            myStore.component[`hero${isDesktopOrLaptop ? "Desktop" : "Mobile"}`]
+              ?.default
           )})`, // no image for mobile
         }}
         className={`hero w-[100vw] relative mt-[66px] md:h-[35vw] h-[129vw] bg-cover bg-center`}
@@ -33,7 +32,7 @@ const Body = observer(() => {
           onClick={() => window.open(REGIS_URL, "_self")}
           className="md:block hidden absolute bottom-[5.25vw] text-[2vw]! left-[19.25vw] w-[18vw]!  rounded-md! "
         >
-          {myStore.component?.BannerButtonText}
+          {myStore.component?.ctaText}
         </button>
       </div>
       <div className="md:w-3/5 w-11/12 m-auto">
@@ -41,7 +40,7 @@ const Body = observer(() => {
         <Tyc />
         <PaymentMethods />
       </div>
-    </div>
+    </>
   );
 });
 

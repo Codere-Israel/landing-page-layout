@@ -1,21 +1,26 @@
 import React from "react";
 import StepItem from "./StepItem";
+import { observer } from "mobx-react";
+import myStore from "../../mobX/myStore";
 
-export default function Steps() {
-  const stepsData = [
-    {
-      title: "Regístrate",
-      text: "¡Bienvenido a Codere! Regístrate fácil y rápidamente",
-    },
-    {
-      title: "Deposita",
-      text: "Mínimo 20€ y duplica tu primer depósito hasta 200€ (50% casino/50% deportes)",
-    },
-    {
-      title: "Diviértete y gana",
-      text: "Cobra más rápido y al instante ¡Así de fácil!",
-    },
-  ];
+const Steps = observer(() => {
+  // const stepsData = [
+  //   {
+  //     title: "Regístrate",
+  //     text: "¡Bienvenido a Codere! Regístrate fácil y rápidamente",
+  //   },
+  //   {
+  //     title: "Deposita",
+  //     text: "Mínimo 20€ y duplica tu primer depósito hasta 200€ (50% casino/50% deportes)",
+  //   },
+  //   {
+  //     title: "Diviértete y gana",
+  //     text: "Cobra más rápido y al instante ¡Así de fácil!",
+  //   },
+  // ];
+
+  const stepsData = myStore.component.steps;
+
   return (
     <div className="text-white flex md:flex-row flex-col gap-1 items-center block">
       {stepsData.map((step, index) => (
@@ -31,4 +36,5 @@ export default function Steps() {
       ))}
     </div>
   );
-}
+});
+export default Steps;

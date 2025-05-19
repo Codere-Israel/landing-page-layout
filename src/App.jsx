@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { observer } from "mobx-react";
 import { toJS } from "mobx";
 import myStore from "./mobX/myStore";
+import { CodereHelmet } from "./js/helper";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const App = observer(() => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
     const client = new ApolloClient({
       uri: "https://cg.optimizely.com/content/v2?auth=kOjOaaRy0DT330ykvD20ypoCqFgDcPSjSpBNxk2NPeaXekEz",
@@ -23,44 +23,82 @@ const App = observer(() => {
       .query({
         query: gql`
           query MyQuery {
-            BlankExperience {
+            BlankExperience(
+              where: {
+                _metadata: {
+                  url: { default: { eq: "${location.pathname}" } }
+                }
+              }
+            ) {
               items {
                 composition {
                   nodes {
                     ... on CompositionComponentNode {
                       component {
                         ... on LandingPageContentBlock {
-                          BannerButtonText
-                          ChooseBannerUnderButtonTextColor
-                          DesktopBannerImageURL {
+                          heroDesktop {
                             default
                           }
-                          DesktopButtonHorizontalPosition
-                          LandingPageType
-                          SEOHTMLDescription
-                          SEOHTMLTitle
-                          SchedulingEndDate
-                          SchedulingStartDate
-                          TextUnderBannerCTAButton
+                          ctaText
+                          heroMobile {
+                            default
+                          }
+                          ctaOrientation
+                          type
+                          tyc {
+                            html
+                          }
+
+                          steps {
+                            ... on StepsBlock {
+                              title
+
+                              description
+                            }
+                          }
+
+                          disclaimer {
+                            color
+
+                            text
+                          }
+                          meta {
+                            description
+
+                            title
+                          }
+                          schedule {
+                            startDate
+                            endDate
+                          }
                         }
                         ... on LandingPageDefaultContentBlock {
-                          BannerButtonText
-                          ChooseBannerUnderButtonTextColor
-                          DesktopButtonHorizontalPosition
-                          DesktopBannerImageURL {
+                          heroDesktop {
                             default
                           }
-                          LandingPageTermsandConditionsContent {
+                          ctaText
+                          heroMobile {
+                            default
+                          }
+                          ctaOrientation
+                          type
+                          tyc {
                             html
-                            json
                           }
-                          LandingPageType
-                          MobileBannerImageURL {
-                            default
+                          steps {
+                            ... on StepsBlock {
+                              title
+                              description
+                            }
                           }
-                          SEOHTMLDescription
-                          SEOHTMLTitle
-                          TextUnderBannerCTAButton
+                          disclaimer {
+                            color
+                            text
+                          }
+                          meta {
+                            description
+                            title
+                          }
                         }
                       }
                     }
@@ -72,10 +110,17 @@ const App = observer(() => {
         `,
       })
       .then((result) => {
-        const res = result?.data?.BlankExperience?.items[1]?.composition?.nodes;
+        const res = result?.data?.BlankExperience?.items[0]?.composition?.nodes;
 
         console.log("All Blocks >>");
-        console.log(res);
+        console.log(result);
+
+        if (!res) {
+          navigate("/page-not-found");
+          return;
+        }
+        // yuval
+        // console.log(res);
 
         const temp = res
           .filter(
@@ -84,8 +129,8 @@ const App = observer(() => {
           )
           .filter(
             (node) =>
-              new Date() >= new Date(node?.component.SchedulingStartDate) &&
-              new Date() <= new Date(node?.component.SchedulingEndDate)
+              new Date() >= new Date(node?.component?.schedule?.startDate) &&
+              new Date() <= new Date(node?.component?.schedule?.endDate)
           );
 
         if (!temp.length) {
@@ -101,14 +146,22 @@ const App = observer(() => {
   }, []);
 
   useEffect(() => {
-    console.log("Chosen node >");
-    console.log(toJS(myStore.component));
+    if (myStore.component) {
+      console.log("Chosen node >");
+      console.log(toJS(myStore.component));
+    }
+
+    let title = toJS(myStore.component)?.meta?.title;
+    let description = toJS(myStore.component)?.meta?.description;
+
+    CodereHelmet(title, description);
   }, [myStore.component]);
 
   return (
     <>
       <Header />
-      <Body />
+
+      <div className="min-h-screen">{myStore.component && <Body />}</div>
       <Footer />
     </>
   );
