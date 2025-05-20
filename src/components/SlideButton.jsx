@@ -118,8 +118,10 @@ const SlideButton = observer(() => {
           </div>
           <div className="rsbcText shine">{myStore.component?.ctaText}</div>
         </div>
-        <div className="text-center text-[2.5vw] pt-1 text-[#79c000]">
-          This is Disclaime color #79c000
+        <div
+          className={`text-center text-[2.5vw] pt-1 text-[${myStore.component?.disclaimer?.color}]`}
+        >
+          {myStore.component?.disclaimer?.text}
         </div>
       </a>
     </div>

@@ -36,8 +36,10 @@ const Body = observer(() => {
           >
             {myStore.component?.ctaText}
           </button>
-          <div className="text-center text-[0.85rem] text-[#79c000]">
-            This is Disclaime color #79c000
+          <div
+            className={`text-center text-[0.85rem] text-[${myStore.component?.disclaimer?.color}]`}
+          >
+            {myStore.component?.disclaimer?.text}
           </div>
         </div>
       </div>
