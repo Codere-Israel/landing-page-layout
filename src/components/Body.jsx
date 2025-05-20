@@ -29,7 +29,7 @@ const Body = observer(() => {
           <SlideButton />
         </div>
 
-        <div className="md:block hidden absolute bottom-[5.25vw]  left-[19.25vw]">
+        <div className="md:block hidden absolute bottom-[4.25vw]  left-[19.25vw]">
           <button
             onClick={() => window.open(REGIS_URL, "_self")}
             className="w-[18vw]! rounded-md! text-[2vw]!"
@@ -37,7 +37,8 @@ const Body = observer(() => {
             {myStore.component?.ctaText}
           </button>
           <div
-            className={`text-center text-[0.85rem] text-[${myStore.component?.disclaimer?.color}]`}
+            style={{ color: myStore.component?.disclaimer?.color || "#ffffff" }}
+            className={`text-center text-[0.65rem] w-[18vw]`}
           >
             {myStore.component?.disclaimer?.text}
           </div>

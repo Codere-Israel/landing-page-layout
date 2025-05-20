@@ -2,6 +2,7 @@ import React from "react";
 import StepItem from "./StepItem";
 import { observer } from "mobx-react";
 import myStore from "../../mobX/myStore";
+import { toJS } from "mobx";
 
 const Steps = observer(() => {
   // const stepsData = [
@@ -19,7 +20,9 @@ const Steps = observer(() => {
   //   },
   // ];
 
-  const stepsData = myStore.component.steps;
+  const stepsData = myStore.component?.steps || [];
+
+  // console.log(toJS(myStore.component));
 
   return (
     <div className="text-white flex md:flex-row flex-col gap-1 items-center block">

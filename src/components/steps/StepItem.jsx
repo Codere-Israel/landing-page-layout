@@ -6,10 +6,10 @@ const StepItem = observer(({ step, order }) => {
   return (
     <div className="flex flex-row md:gap-3 gap-4 items-center _md:max-w-[28%] max-w-full avner md:p-0 p-3 w-full">
       <span
-        // className={`md:text-[110px] text-[16vw] font-medium text-[#79c000]`}
-        className={`md:text-[110px] text-[16vw] font-medium text-[#${
-          myStore.component?.type === "Sport" ? "79c000" : "c546d3"
-        }]`}
+        style={{
+          color: myStore.component?.type === "Sport" ? "#79c000" : "#c546d3",
+        }}
+        className={`md:text-[110px] text-[16vw] font-medium`}
       >
         {order}
       </span>

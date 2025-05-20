@@ -113,7 +113,7 @@ const App = observer(() => {
         const res = result?.data?.BlankExperience?.items[0]?.composition?.nodes;
 
         console.log("All Blocks >>");
-        console.log(result);
+        console.log(res);
 
         if (!res) {
           navigate("/page-not-found");
@@ -137,7 +137,7 @@ const App = observer(() => {
           myStore.updateComponent(
             res.filter(
               (node) =>
-                node.component["__typename"] !==
+                node.component["__typename"] ===
                 "LandingPageDefaultContentBlock"
             )[0]?.component
           );
