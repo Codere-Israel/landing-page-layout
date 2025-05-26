@@ -21,7 +21,7 @@ const Header = observer(() => {
             <button
               onClick={() => window.open(LOGIN_URL, "_self")}
               role="button"
-              className="bg-[#79c000]! md:block hidden"
+              className="bg-[#79c000]! hover:bg-[#79c000cc]! md:block hidden"
             >
               Acceso
             </button>

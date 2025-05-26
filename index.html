@@ -11,9 +11,173 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Adform tracking code begin -->
+    <script type="text/javascript">
+      window._adftrack = Array.isArray(window._adftrack)
+        ? window._adftrack
+        : window._adftrack
+        ? [window._adftrack]
+        : [];
+      window._adftrack.push({
+        HttpHost: "track.adform.net",
+        pm: 1188265,
+      });
+      (function () {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://s2.adform.net/banners/scripts/st/trackpoint-async.js";
+        var x = document.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      })();
+      window._adftrack = Array.isArray(window._adftrack)
+        ? window._adftrack
+        : window._adftrack
+        ? [window._adftrack]
+        : [];
+      window._adftrack.push({
+        HttpHost: "track.adform.net",
+        pm: 1188265,
+        divider: encodeURIComponent("|"),
+        pagename: encodeURIComponent("Codere|Mastertag Codere Spain"),
+      });
+      (function () {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://s2.adform.net/banners/scripts/st/trackpoint-async.js";
+        var x = document.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      })();
+    </script>
+
+    <script>
+      // Define gtag function and dataLayer array
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+
+      // Initialize Google Ads and configure tags
+      (function () {
+        const googleAdsIds = ["922932825", "10960655810", "706904279"];
+        const googleAdsBaseUrl = "https://www.googletagmanager.com/gtag/js?id=";
+
+        // Load Google Ads scripts dynamically
+        googleAdsIds.forEach((id) => {
+          const script = document.createElement("script");
+          script.src = `${googleAdsBaseUrl}AW-${id}`;
+          script.async = true;
+          document.head.appendChild(script);
+        });
+
+        // Set up gtag configuration
+        gtag("js", new Date());
+
+        function getCookie(name) {
+          const cookies = document.cookie.split(";");
+          for (let cookie of cookies) {
+            const [cookieName, cookieValue] = cookie.trim().split("=");
+            if (cookieName === name) {
+              return decodeURIComponent(cookieValue);
+            }
+          }
+          return null;
+        }
+
+        // console.log(JSON.parse(getCookie("consentStatus")));
+
+        const status = JSON.parse(getCookie("consentStatus")) || {
+          advertismentOK: false,
+          analyticsOK: false,
+          customOk: false,
+        };
+
+        const statusOptions = {
+          ad_storage: status.advertismentOK ? "granted" : "denied",
+          ad_user_data: status.advertismentOK ? "granted" : "denied",
+          ad_personalization: status.advertismentOK ? "granted" : "denied",
+          functionality_storage: status.advertismentOK ? "granted" : "denied",
+          personalization_storage: status.advertismentOK ? "granted" : "denied",
+          security_storage: status.advertismentOK ? "granted" : "denied",
+          analytics_storage: status.analyticsOK ? "granted" : "denied",
+        };
+
+        // console.log(statusOptions);
+
+        googleAdsIds.forEach((id) => {
+          console.log(
+            `configuring AW-${id.slice(0, 3)} ... | Status: ${status}`
+          );
+          gtag("config", `AW-${id}`);
+          gtag("consent", "default", statusOptions);
+        });
+        if (window.location.href.includes("testoptimizely=true")) {
+          var optimizelyScript = document.createElement("script");
+          optimizelyScript.src =
+            "https://cdn.optimizely.com/js/6378242232287232.js";
+          document.head.appendChild(optimizelyScript);
+        }
+      })();
+
+      // Facebook Pixel Initialization
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "670176583366501");
+      fbq("track", "PageView");
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PZDCDL4S");
+    </script>
   </head>
   <body class="bg-[#323f48] text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NH935V8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>

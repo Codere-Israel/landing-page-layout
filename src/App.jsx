@@ -8,6 +8,7 @@ import { toJS } from "mobx";
 import myStore from "./mobX/myStore";
 import { CodereHelmet } from "./js/helper";
 import { useLocation, useNavigate } from "react-router-dom";
+import MyCookies from "./components/MyCookies";
 
 const App = observer(() => {
   const navigate = useNavigate();
@@ -153,8 +154,9 @@ const App = observer(() => {
 
     let title = toJS(myStore.component)?.meta?.title;
     let description = toJS(myStore.component)?.meta?.description;
+    let type = toJS(myStore.component)?.type.toLowerCase();
 
-    CodereHelmet(title, description);
+    CodereHelmet(title, description, type);
   }, [myStore.component]);
 
   return (
@@ -162,6 +164,7 @@ const App = observer(() => {
       <Header />
 
       <div className="min-h-screen">{myStore.component && <Body />}</div>
+      <MyCookies />
       <Footer />
     </>
   );

@@ -29,10 +29,11 @@ const Body = observer(() => {
           <SlideButton />
         </div>
 
-        <div className="md:block hidden absolute bottom-[4.25vw]  left-[19.25vw]">
+        <div className="md:block hidden absolute bottom-[4.25vw] left-[19.25vw]">
           <button
+            role="button"
             onClick={() => window.open(REGIS_URL, "_self")}
-            className="w-[18vw]! rounded-md! text-[2vw]!"
+            className="w-[18vw]! rounded-md! text-[2vw]! bg-[#0d6efd]!"
           >
             {myStore.component?.ctaText}
           </button>
