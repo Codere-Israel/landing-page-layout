@@ -120,8 +120,6 @@ const App = observer(() => {
           navigate("/page-not-found");
           return;
         }
-        // yuval
-        // console.log(res);
 
         const temp = res
           .filter(
@@ -164,7 +162,7 @@ const App = observer(() => {
       <Header />
 
       <div className="min-h-screen">{myStore.component && <Body />}</div>
-      {/* <MyCookies /> */}
+      <MyCookies />
       <Footer />
     </>
   );
