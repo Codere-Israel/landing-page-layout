@@ -164,7 +164,7 @@ const App = observer(() => {
       <Header />
 
       <div className="min-h-screen">{myStore.component && <Body />}</div>
-      <MyCookies />
+      {/* <MyCookies /> */}
       <Footer />
     </>
   );
