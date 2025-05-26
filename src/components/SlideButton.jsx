@@ -12,7 +12,7 @@ const SlideButton = observer(() => {
   const [unlocked, setUnlocked] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [sliderLeft, setSliderLeft] = useState(100);
+  const [sliderLeft, setSliderLeft] = useState(0);
   const containerWidth = useRef(0);
   const unmounted = useRef(false);
 
