@@ -21,7 +21,7 @@ const Body = observer(() => {
           backgroundImage: `url(${toJS(
             myStore.component[`hero${isDesktopOrLaptop ? "Desktop" : "Mobile"}`]
               ?.default
-          )})`, // no image for mobile
+          )})`,
         }}
         className={`hero w-[100vw] relative mt-[66px] md:h-[35vw] h-[129vw] bg-cover bg-center`}
       >

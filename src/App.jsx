@@ -27,7 +27,7 @@ const App = observer(() => {
             BlankExperience(
               where: {
                 _metadata: {
-                  url: { default: { eq: "${location.pathname}" } }
+                  url: { default: { eq: "${location.pathname}/" } }
                 }
               }
             ) {
