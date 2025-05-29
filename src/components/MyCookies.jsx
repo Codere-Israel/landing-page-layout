@@ -1,5 +1,5 @@
-import { useState } from "react";
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import {useState} from "react";
+import CookieConsent, {Cookies} from "react-cookie-consent";
 
 export default function MyCookies() {
   const [showCookieConsent, setShowCookieConsent] = useState(
@@ -8,7 +8,35 @@ export default function MyCookies() {
 
   const cookieHandler = (isAccepted) => {
     const acceptedValue = isAccepted ? "granted" : "denied";
-
+    if (acceptedValue == "granted") {
+      dataLayer.push({
+        event: "cookieConsentAccepted",
+        cookieConsentAccepted: "granted",
+        value: {
+          ad_storage: acceptedValue,
+          ad_user_data: acceptedValue,
+          ad_personalization: acceptedValue,
+          functionality_storage: acceptedValue,
+          personalization_storage: acceptedValue,
+          security_storage: acceptedValue,
+          analytics_storage: acceptedValue,
+        },
+      });
+    } else {
+      dataLayer.push({
+        event: "cookieConsentDeclined",
+        cookieConsentAccepted: "denied",
+        value: {
+          ad_storage: acceptedValue,
+          ad_user_data: acceptedValue,
+          ad_personalization: acceptedValue,
+          functionality_storage: acceptedValue,
+          personalization_storage: acceptedValue,
+          security_storage: acceptedValue,
+          analytics_storage: acceptedValue,
+        },
+      });
+    }
     // console.log("New status: ", acceptedValue);
     window.gtag("consent", "update", {
       ad_storage: acceptedValue,
@@ -46,7 +74,7 @@ export default function MyCookies() {
           buttonText=""
           overlay={false}
           disableButtonStyles
-          extraCookieOptions={{ domain: ".codere.es" }}
+          extraCookieOptions={{domain: ".codere.es"}}
           overlayClasses="cookie-overlay "
           containerClasses="bg-[#000c]!"
           contentClasses="p-2 pt-5"
