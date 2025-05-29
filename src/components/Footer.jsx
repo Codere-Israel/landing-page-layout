@@ -51,7 +51,7 @@ export default function Footer() {
           >
             <img
               className="md:max-h-[40px] max-h-[15px] md:p-2 p-0"
-              src={`${LOGOS_PREFIX}/${regItem.imgSrc}`}
+              src={`${LOGOS_PREFIX}/${regItem.imgSrc}`} width="50" height="50"
             />
           </a>
         ))}

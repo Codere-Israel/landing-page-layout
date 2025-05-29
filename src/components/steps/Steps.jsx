@@ -30,7 +30,7 @@ const Steps = observer(() => {
         <React.Fragment key={index}>
           <StepItem step={step} order={index + 1} />
           {index + 1 < stepsData.length && (
-            <img
+            <img width="50" height="50"
               className="h-[100px] rotate-90 md:rotate-0 md:block hidden"
               src="https://www.codere.es/assets1/logosAndSponsors/landingPagesArrow.webp"
             />
