@@ -19,7 +19,7 @@ export default function PaymentMethods() {
       <h1 className="text-4xl! px-2">Métodos para depositar y cobrar</h1>
       <div className="grid md:w-[500px] w-full grid-flow-row-dense grid-cols-5 grid-rows-2 gap-2 m-auto py-3">
         {imageSources.map((src, i) => (
-          <img width={100} key={i} src={src} />
+          <img width={100} height={100} key={i} src={src} />
         ))}
       </div>
     </div>
