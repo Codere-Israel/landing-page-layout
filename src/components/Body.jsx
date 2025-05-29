@@ -23,7 +23,7 @@ const Body = observer(() => {
               ?.default
           )})`,
         }}
-        className={`hero w-[100vw] relative mt-[66px] md:h-[35vw] h-[129vw] bg-cover bg-center`}
+        className={`hero w-[100vw] relative mt-[66px] md:h-[35vw] h-[129vw] bg-cover bg-center`} width="400" height="400"
       >
         <div className="md:hidden block">
           <SlideButton />
